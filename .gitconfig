@@ -1,0 +1,5 @@
+[user]
+	name = Zoltan Szeredi
+	email = zoltan.szeredi@3pillarglobal.com
+[core]
+	editor = emacs
