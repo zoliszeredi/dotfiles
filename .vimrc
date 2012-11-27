@@ -1,7 +1,7 @@
 "
 " File:		.vimrc
 "
-" Maintainer:	Szeredi Tibor Zoltan <zownix@gmail.com>
+" Maintainer:	Szeredi Tibor Zoltan <zoltan.szeredi@3pillarglobal.com>
 "
 "
 

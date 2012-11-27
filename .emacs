@@ -25,3 +25,5 @@
 ;;(scroll-bar-mode -1)
 
 (setq scheme-program-name "guile")
+(setq fill-column 79)
+
