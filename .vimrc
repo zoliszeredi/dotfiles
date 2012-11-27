@@ -16,7 +16,6 @@ set showcmd
 set incsearch
 set encoding=utf8
 set textwidth=78
-set relativenumber
 
 if has("mouse")
 	set mouse=a
@@ -24,6 +23,7 @@ endif
 
 if v:version>=703
 	set colorcolumn=+1
+	set relativenumber
 endif
 
 if has("gui_running")
