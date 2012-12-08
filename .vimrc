@@ -54,6 +54,7 @@ syntax on
 filetype indent plugin on
 autocmd FileType python set ts=4 sw=4 bs=2 et
 autocmd FileType cpp set ts=2 sw=2 bs=2 et
+autocmd FileType html set ts=4 sw=4 bs=2 et
 autocmd FileType text set cc=0
 
 call SetCommands()
