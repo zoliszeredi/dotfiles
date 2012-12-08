@@ -41,8 +41,13 @@ function DjangoTags()
 	set tags+=/usr/share/django.tags
 endfunction
 
+function PythonTags()
+    set tags+=/usr/share/python.tags
+endfunction
+
 function SetCommands()
 	command DjangoMode call DjangoTags()
+	command PythonMode call PythonTags()
 endfunction
 
 syntax on
