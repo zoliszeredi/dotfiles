@@ -38,8 +38,7 @@ else
 endif
 
 function DjangoTags()
-"	tabnew ~/Source/django/docs/intro
-	set tags+=~/Source/django/tags
+	set tags+=/usr/share/django.tags
 endfunction
 
 function SetCommands()
