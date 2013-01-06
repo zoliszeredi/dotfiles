@@ -3,3 +3,4 @@
 	email = zoltan.szeredi@3pillarglobal.com
 [core]
 	editor = emacs
+	excludesfile = ~/.gitignore_global

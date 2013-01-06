@@ -1,16 +1,14 @@
 #!/bin/sh
 
-FILES=".vimrc \
-	.emacs \
-	.gitconfig"
+DOTENTRIES=`ls -a | egrep '^\.'`
 
-for dotfile in $FILES
+for dotent in $DOTENTRIES
 do
-	if [ -f "$dotfile" ]
-	then 	
-		cp -vf "$dotfile" "$HOME"
-	else
-		echo "$dotfile" not found
+	if [ -f $dotent ]
+	then
+		CMD="cp -f $dotent $HOME/$dotent"
+		echo $CMD
+		`$CMD`
 	fi
 done
 
