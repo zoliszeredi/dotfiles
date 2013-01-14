@@ -22,7 +22,7 @@ if has("mouse")
 endif
 
 if v:version>=703
-	set colorcolumn=+1
+"	set colorcolumn=+1
 	set relativenumber
 endif
 
@@ -34,7 +34,7 @@ if has("gui_running")
 	set lines=50
 	colo darkblue
 else
-	colo desert
+	colo evening
 endif
 
 function DjangoTags()
@@ -52,10 +52,9 @@ endfunction
 
 syntax on
 filetype indent plugin on
-autocmd FileType python set ts=4 sw=4 bs=2 et
-autocmd FileType cpp set ts=2 sw=2 bs=2 et
-autocmd FileType html set ts=4 sw=4 bs=2 et
-autocmd FileType text set cc=0
+autocmd FileType python set ts=4 sw=4 bs=2 cc=+1 et
+autocmd FileType cpp set ts=2 sw=2 bs=2 cc=+1 et
+autocmd FileType html set ts=4 sw=4 bs=2 cc=+1 et
 inoremap jk <esc>
 
 call SetCommands()
