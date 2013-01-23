@@ -10,6 +10,9 @@
 
 # Python specific
 *.pyc
+*.egg
+*.egg-info
+dist
 
 # Tags
 tags
