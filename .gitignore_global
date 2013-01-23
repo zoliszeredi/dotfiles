@@ -1,7 +1,19 @@
+# Emacs specific
+\#*.*\#
 *~
-.DS_Store
+
+# C/C++ specific
+*.o
+
+# Java specific
+*.class
+
+# Python specific
+*.pyc
+
+# Tags
 tags
 TAGS
-*.pyc
-*.o
-*.class
+
+# OS X specific
+.DS_Store

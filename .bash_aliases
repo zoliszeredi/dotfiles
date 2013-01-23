@@ -17,10 +17,25 @@ rmenv()
 
 djenv() 
 { 
-    PYTHONPATH=$VIRTUAL_ENV/lib/python2.7/site-packages/$1
-    DJANGO_SETTINGS_MODULE=$1.settings
-    export PYTHONPATH DJANGO_SETTINGS_MODULE
+    DJANGO_PROJ=$1
+    PYTHONPATH=$VIRTUAL_ENV/lib/python2.7/site-packages/$DJANGO_PROJ
+    DJANGO_SETTINGS_MODULE=$DJANGO_PROJ.settings
+    export PYTHONPATH DJANGO_PROJ DJANGO_SETTINGS_MODULE
 }
+
+#
+# TODO place django in debug/nodebug mode 
+#
+# djdebug()
+# {
+#     sed s/DEBUG \= False/DEBUG \= True/g < $PYTHONPATH
+# }
+# 
+# djnodebug()
+# {
+#     sed s/DEBUG \= True/DEBUG \= False/g
+# }
+#
 
 djprep()
 {

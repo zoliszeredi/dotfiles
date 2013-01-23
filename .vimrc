@@ -34,7 +34,7 @@ if has("gui_running")
 	set lines=50
 	colo darkblue
 else
-	colo evening
+	colo desert
 endif
 
 function DjangoTags()
