@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 TERM="xterm-256color"
 export TERM
