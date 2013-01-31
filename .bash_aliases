@@ -44,7 +44,8 @@ djenv()
     DJANGO_ROOT=`find $PROJ_PREFIX -name 'settings.py' -exec dirname {} \;`
     PYTHONPATH=$PROJ_PREFIX/$PROJ
     DJANGO_SETTINGS_MODULE=${DJANGO_ROOT##*/}.settings
-    export PYTHONPATH DJANGO_SETTINGS_MODULE
+    DJANGO_SETTINGS=$DJANGO_ROOT/settings.py
+    export PYTHONPATH DJANGO_SETTINGS_MODULE DJANGO_ROOT DJANGO_SETTINGS
 }
 
 djprep()
@@ -56,6 +57,7 @@ djprep()
     fi
 
     django-admin.py syncdb
+    django-admin.py migrate
     django-admin.py collectstatic
 }
 
@@ -64,22 +66,33 @@ djrun()
     if [ -z $VIRTUAL_ENV ]
     then
 	echo "Not in a virtual/django environment."
-	return 0
+	return 1
     fi
 
     django-admin.py runserver 0:8000
 }
 
-#
-# TODO place django in debug/nodebug mode 
-#
-# djdebug()
-# {
-#     sed s/DEBUG \= False/DEBUG \= True/g < $PYTHONPATH
-# }
-# 
-# djnodebug()
-# {
-#     sed s/DEBUG \= True/DEBUG \= False/g
-# }
-#
+djdebug()
+{
+    if [ -z $DJANGO_SETTINGS ]
+    then
+	echo "Run djenv first"
+	return 1
+    fi
+
+    sed 's/DEBUG \= False/DEBUG \= True/g' < $DJANGO_SETTINGS > $$
+    mv $$ $DJANGO_SETTINGS
+}
+
+djnodebug()
+{
+    if [ -z $DJANGO_SETTINGS ]
+    then
+	echo "Run djenv first"
+	return 1
+    fi
+
+    sed 's/DEBUG \= True/DEBUG \= False/g' < $DJANGO_SETTINGS > $$
+    mv $$ $DJANGO_SETTINGS
+}
+
