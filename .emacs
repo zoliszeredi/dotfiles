@@ -31,7 +31,7 @@
 (require 'color-theme)
 (color-theme-initialize)
 (if window-system
-    (color-theme-classic)
+    (color-theme-charcoal-black)
   (color-theme-clarity))
 
  ;; disable the damn splash-screen
