@@ -32,7 +32,7 @@ if has("gui_running")
 	set guioptions-=r
 	set columns=160
 	set lines=50
-	colo darkblue
+	colo evening
 else
 	colo desert
 endif
