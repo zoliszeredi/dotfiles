@@ -42,7 +42,7 @@ djenv()
     PROJ=$1
     PROJ_PREFIX=$VIRTUAL_ENV/lib/python2.7/site-packages
     PYTHONPATH=$PROJ_PREFIX/$PROJ
-    DJANGO_ROOT=`find $PYTHONPATH -name 'settings.py' -exec dirname {} \;`
+    DJANGO_ROOT=$(find $PYTHONPATH -name 'settings.py' -exec dirname {} \;)
     DJANGO_SETTINGS_MODULE=${DJANGO_ROOT##*/}.settings
     DJANGO_SETTINGS=$DJANGO_ROOT/settings.py
     export PYTHONPATH DJANGO_SETTINGS_MODULE DJANGO_ROOT DJANGO_SETTINGS

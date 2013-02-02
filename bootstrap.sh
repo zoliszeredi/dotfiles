@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/bin/bash
 
-DOTENTRIES=`ls -a | egrep '^\.'`
+DOTENTRIES=$(ls -a | egrep '^\.')
 
 for dotent in $DOTENTRIES
 do
@@ -8,7 +8,7 @@ do
 	then
 		CMD="cp -f $dotent $HOME/$dotent"
 		echo $CMD
-		`$CMD`
+		$CMD
 	fi
 done
 

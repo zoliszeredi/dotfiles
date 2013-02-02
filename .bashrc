@@ -1,13 +1,12 @@
 #!/bin/bash
 
 TERM="xterm-256color"
-ENV_WRAP=`which virtualenvwrapper.sh > /dev/null`
+VIRTUAL_ENV_WRAPPER=$(which "virtualenvwrapper.sh" 2> /dev/null)
+FORTUNE=$(which fortune > /dev/null)
 
 export TERM
-source $HOME/.bash_aliases
-if [ -f $ENV_WRAP ]
-then
-    source $ENV_WRAP
-fi
 
-fortune
+source_if_exists $HOME/.bash_aliases
+source_if_exists $VIRTUAL_ENV_WRAPPER
+run_if_exists $FORTUNE
+
