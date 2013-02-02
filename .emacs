@@ -30,13 +30,12 @@
 (put 'dired-find-alternate-file 'disabled nil)
 (require 'color-theme)
 (color-theme-initialize)
-(if window-system
-    (color-theme-charcoal-black)
-  (color-theme-clarity))
+(color-theme-charcoal-black)
 
  ;; disable the damn splash-screen
 (setq inhibit-splash-screen t)
 
-(setq scheme-program-name "guile")
+ ;; (setq scheme-program-name "guile")
+(setq scheme-program-name "kawa")
 (setq fill-column 79)
 
