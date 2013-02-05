@@ -72,6 +72,17 @@ djrun()
     django-admin.py runserver 0:8000
 }
 
+djsh()
+{
+    if [ -z $DJANGO_SETTINGS ]
+    then
+	echo "Run djenv first"
+	return 1
+    fi
+
+    django-admin.py shell
+}
+
 djdebug()
 {
     if [ -z $DJANGO_SETTINGS ]
