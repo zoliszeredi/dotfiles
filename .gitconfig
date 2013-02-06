@@ -5,3 +5,8 @@
 	editor = emacs
 	excludesfile = ~/.gitignore_global
 	pager = 
+[color]
+	diff = always
+	status = always
+	branch = always
+	interactive = always
