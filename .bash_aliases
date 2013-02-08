@@ -50,9 +50,9 @@ djenv()
 
 djprep()
 {
-    if [ -z $VIRTUAL_ENV ]
+    if [ -z $VIRTUAL_ENV ] || [ -z $DJANGO_SETTINGS_MODULE ]
     then
-	echo "Not in a virtual environment."
+	echo "Not in a virtual environment or django settings set."
 	return 0
     fi
 
