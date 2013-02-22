@@ -1,5 +1,6 @@
 # Emacs specific
 \#*.*\#
+.\#*
 *~
 
 # C/C++ specific

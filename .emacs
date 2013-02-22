@@ -43,4 +43,52 @@
 (defun google-region (beg end)
   "Google the selected region"
   (interactive "r")
-  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" (buffer-substring beg end))))
+  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" 
+		      (buffer-substring beg end))))
+
+
+
+;; Python land refactorings
+
+(defun pyrf-search-backward-for-def ()
+  (save-excursion
+    (re-search-backward "def \\(\\([[:alnum:]]\\|_\\)+\\)")
+    (match-string 1)))
+
+(defun pyrf-search-backward-for-class ()
+  (save-excursion
+    (re-search-backward "class \\(\\([[:alnum:]]\\|_\\)+\\)")
+    (match-string 1)))
+
+(defun pyrf-search-forward-for-return ()
+  (save-excursion
+    (re-search-forward "return")))
+
+(defun pyrf-log-entry-points (position)
+  (interactive "d")
+  (save-excursion
+    (let ((function-name (pyrf-search-backward-for-def))
+	  (class-name (pyrf-search-backward-for-class))
+	  (return-pos (pyrf-search-forward-for-return))
+	  (log-entry-format "print 'O\\t%s::%s'")
+	  (log-exit-format "print 'X\\t%s::%s'"))
+      (goto-char return-pos)
+      (beginning-of-line-text)
+      (insert (format log-exit-format class-name function-name))
+      (newline-and-indent)
+      (beginning-of-defun)
+      (end-of-line)
+      (newline-and-indent)
+      (insert (format log-entry-format class-name function-name)))))
+
+
+
+
+
+
+
+
+
+
+
+
