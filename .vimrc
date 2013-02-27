@@ -23,7 +23,7 @@ endif
 
 if v:version>=703
 "	set colorcolumn=+1
-	set relativenumber
+"	set relativenumber
 endif
 
 if has("gui_running")
