@@ -1,0 +1,8 @@
+[global]
+index-url = http://pypi.pbs.org
+	  
+
+[install]
+find-links = 
+	   f.pypi.python.org
+	   pypi.crate.io
