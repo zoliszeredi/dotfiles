@@ -27,11 +27,11 @@
  ;; If there is more than one, they won't work right.
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
-(add-to-list 'load-path "~/.emacs.d/lisp/color-theme/")
+ ;; (add-to-list 'load-path "~/.emacs.d/lisp/color-theme/")
 (put 'dired-find-alternate-file 'disabled nil)
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-charcoal-black)
+ ;; (color-theme-charcoal-black)
 
  ;; disable the damn splash-screen
 (setq inhibit-splash-screen t)
