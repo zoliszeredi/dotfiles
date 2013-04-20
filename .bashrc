@@ -29,13 +29,15 @@ select_solarized_theme()
 {
     CURRENT_HOUR=$(date +"%H")
     SUNSET_HOUR=18
+    SUNRISE_HOUR=06
     COMMON_COLORS=$(grep -A10 Common $HOME/.solarized)
     LIGHT=$(grep -A10 Light $HOME/.solarized)
     DARK=$(grep -A10 Dark $HOME/.solarized)
     TERMINAL_THEME=$(grep -A30 terminal $HOME/.solarized)
     LS_COLORS_FILE=/tmp/$$.colors
 
-    if [ "$CURRENT_HOUR" -gt "$SUNSET_HOUR" ]
+    if [ "$CURRENT_HOUR" -gt "$SUNSET_HOUR" ] || \
+	    [ "$CURRENT_HOUR" -lt "$SUNRISE_HOUR" ]
     then
        NEW_THEME="$COMMON_COLORS\n$DARK\n$TERMINAL_THEME\n"
        dircolors $HOME/.dircolors.ansi-dark > $LS_COLORS_FILE
