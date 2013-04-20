@@ -15,7 +15,7 @@ start_ssh_agent()
     then
         $SSH_AGENT > $$.envs
         source $$.envs
-	rm $$.envs
+        rm $$.envs
         ssh-add $HOME/.ssh/id_rsa
     fi
 }

@@ -33,14 +33,20 @@ select_solarized_theme()
     LIGHT=$(grep -A10 Light $HOME/.solarized)
     DARK=$(grep -A10 Dark $HOME/.solarized)
     TERMINAL_THEME=$(grep -A30 terminal $HOME/.solarized)
+    LS_COLORS_FILE=/tmp/$$.colors
 
     if [ "$CURRENT_HOUR" -gt "$SUNSET_HOUR" ]
     then
-       echo "$COMMON_COLORS $DARK $TERMINAL_THEME" | xrdb -merge
+       NEW_THEME="$COMMON_COLORS\n$DARK\n$TERMINAL_THEME\n"
+       dircolors $HOME/.dircolors.ansi-dark > $LS_COLORS_FILE
     else
-       echo "$COMMON_COLORS $LIGHT $TERMINAL_THEME" | xrdb -merge
+       NEW_THEME="$COMMON_COLORS\n$LIGHT\n$TERMINAL_THEME\n"
+       dircolors $HOME/.dircolors.ansi-light > $LS_COLORS_FILE
     fi
 
+    echo -e "$NEW_THEME" | xrdb -merge
+    source $LS_COLORS_FILE
+    rm $LS_COLORS_FILE
 }
 
 select_solarized_theme
