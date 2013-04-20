@@ -1,8 +1,8 @@
 xterm*loginShell:      true
-xterm*foreground:      grey
-xterm*background:      black
 xterm*geometr:         80x50
 xterm*scrollBar:       off
 xterm*borderWidth:     0
 xterm*metaSendsEscape: true
+xterm*faceName:	       Bitstream Vera Sans Mono
+xterm*faceSize:	       10
 
