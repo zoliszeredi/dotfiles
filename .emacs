@@ -4,7 +4,6 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(column-number-mode t)
- '(custom-enabled-themes (quote (misterioso)))
  '(gud-gdb-command-name "gdb --annotate=1")
  '(large-file-warning-threshold nil)
  '(menu-bar-mode nil nil (menu-bar))

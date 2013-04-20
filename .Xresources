@@ -1,8 +1,9 @@
+xterm*termName:        xterm-256color
 xterm*loginShell:      true
-xterm*geometr:         80x50
+xterm*geometry:        80x50
 xterm*scrollBar:       off
-xterm*borderWidth:     0
+xterm*internalBorder:  25
 xterm*metaSendsEscape: true
-xterm*faceName:	       Bitstream Vera Sans Mono
-xterm*faceSize:	       10
-
+xterm*backarrowKey:    false
+xterm*faceName:        Bitstream Vera Sans Mono
+xterm*faceSize:        10

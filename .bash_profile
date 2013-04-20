@@ -13,9 +13,10 @@ start_ssh_agent()
 {
     if [ "$SSH_AGENT_PID" == "" ]
     then
-        $($SSH_AGENT > $$.envs)  
-	source $$.envs
-	ssh-add $HOME/.ssh/id_rsa
+        $SSH_AGENT > $$.envs
+        source $$.envs
+	rm $$.envs
+        ssh-add $HOME/.ssh/id_rsa
     fi
 }
 
