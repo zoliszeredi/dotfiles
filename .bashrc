@@ -44,6 +44,7 @@ select_solarized_theme()
 
 }
 
+
 select_solarized_theme
 source_if_exists $HOME/.bash_aliases
 source_if_exists $VIRTUAL_ENV_WRAPPER
