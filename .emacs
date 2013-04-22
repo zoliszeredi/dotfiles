@@ -33,17 +33,15 @@
  ;; disable the damn splash-screen
 (setq inhibit-splash-screen t)
 
- ;; (setq scheme-program-name "guile")
-(setq scheme-program-name "kawa")
+(setq scheme-program-name "guile")
+ ;; (setq scheme-program-name "kawa")
 (setq fill-column 79)
 
 (defun google-region (beg end)
   "Google the selected region"
   (interactive "r")
   (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" 
-		      (buffer-substring beg end))))
-
-
+                      (buffer-substring beg end))))
 
 ;; Python land refactorings
 
@@ -65,10 +63,10 @@
   (interactive "d")
   (save-excursion
     (let ((function-name (pyrf-search-backward-for-def))
-	  (class-name (pyrf-search-backward-for-class))
-	  (return-pos (pyrf-search-forward-for-return))
-	  (log-entry-format "print 'O\\t%s::%s'")
-	  (log-exit-format "print 'X\\t%s::%s'"))
+          (class-name (pyrf-search-backward-for-class))
+  (return-pos (pyrf-search-forward-for-return))
+  (log-entry-format "print 'O\\t%s::%s'")
+  (log-exit-format "print 'X\\t%s::%s'"))
       (goto-char return-pos)
       (beginning-of-line-text)
       (insert (format log-exit-format class-name function-name))
@@ -77,15 +75,3 @@
       (end-of-line)
       (newline-and-indent)
       (insert (format log-entry-format class-name function-name)))))
-
-
-
-
-
-
-
-
-
-
-
-

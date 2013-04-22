@@ -1,8 +1,8 @@
 [global]
-index-url = http://pypi.pbs.org
-	  
+index-url = http://pypi.pbs.org/simple
+use-mirrors = true
 
 [install]
 find-links = 
-	   f.pypi.python.org
-	   pypi.crate.io
+    http://f.pypi.python.org
+    http://pypi.crate.io
