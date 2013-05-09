@@ -36,6 +36,7 @@
 (setq scheme-program-name "guile")
  ;; (setq scheme-program-name "kawa")
 (setq fill-column 79)
+(setq-default indent-tabs-mode nil)
 
 (defun google-region (beg end)
   "Google the selected region"
