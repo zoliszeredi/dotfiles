@@ -1,14 +1,19 @@
 #!/bin/bash
 
 DOTENTRIES=$(ls -a | egrep '^\.')
+XFILES=$(ls -a | egrep '\.(x|X)')
+UNAME=$(uname -s)
 
-for dotent in $DOTENTRIES
+for DOTENTRY in $DOTENTRIES
 do
-	if [ -f $dotent ]
+    if [ -f $DOTENTRY ]
+    then
+	IS_X_FILE=$(echo $XFILES | grep $DOTENTRY)
+        if [ ! -z $IS_X_FILE ] && [ $(uname) == "Darwin" ]
 	then
-		CMD="cp -f $dotent $HOME/$dotent"
-		echo $CMD
-		$CMD
+	    continue
 	fi
+        
+        CMD="cp -Rf $DOTENTRY $HOME/$DOTENTRY" && echo $CMD && $CMD
+    fi
 done
-

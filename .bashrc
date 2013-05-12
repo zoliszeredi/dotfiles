@@ -37,7 +37,7 @@ select_solarized_theme()
     LS_COLORS_FILE=/tmp/$$.colors
 
     if [ "$CURRENT_HOUR" -gt "$SUNSET_HOUR" ] || \
-	    [ "$CURRENT_HOUR" -lt "$SUNRISE_HOUR" ]
+       [ "$CURRENT_HOUR" -lt "$SUNRISE_HOUR" ]
     then
        NEW_THEME="$COMMON_COLORS\n$DARK\n$TERMINAL_THEME\n"
        dircolors $HOME/.dircolors.ansi-dark > $LS_COLORS_FILE
@@ -51,7 +51,11 @@ select_solarized_theme()
     rm $LS_COLORS_FILE
 }
 
-select_solarized_theme
+if [ $(uname) == "Linux" ]
+then
+    select_solarized_theme
+fi
+
 source_if_exists $HOME/.bash_aliases
 source_if_exists $VIRTUAL_ENV_WRAPPER
-# run_if_exists $FORTUNE
+run_if_exists $FORTUNE

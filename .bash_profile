@@ -21,4 +21,7 @@ start_ssh_agent()
     fi
 }
 
-start_ssh_agent
+if [ $(uname) == "Linux" ]
+then
+    start_ssh_agent
+fi
