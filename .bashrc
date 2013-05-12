@@ -51,7 +51,7 @@ select_solarized_theme()
     rm $LS_COLORS_FILE
 }
 
-if [ $(uname) == "Linux" ]
+if [ "$UNAME" == "Linux" ]
 then
     select_solarized_theme
 fi

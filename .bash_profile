@@ -6,8 +6,9 @@ PATH=$PATH:$HOME/bin
 WORKON_HOME=$HOME/.envs
 PIP_CONFIG_FILE=$HOME/.piprc
 SSH_AGENT=$(which ssh-agent 2>/dev/null)
+UNAME=$(uname -s)
 
-export PS1 PS2 PATH WORKON_HOME PIP_CONFIG_FILE
+export PS1 PS2 PATH WORKON_HOME PIP_CONFIG_FILE UNAME
 source $HOME/.bashrc
 
 start_ssh_agent()
@@ -21,7 +22,7 @@ start_ssh_agent()
     fi
 }
 
-if [ $(uname) == "Linux" ]
+if [ "$UNAME" == "Linux" ]
 then
     start_ssh_agent
 fi

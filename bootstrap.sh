@@ -9,7 +9,7 @@ do
     if [ -f $DOTENTRY ]
     then
 	IS_X_FILE=$(echo $XFILES | grep $DOTENTRY)
-        if [ ! -z $IS_X_FILE ] && [ $(uname) == "Darwin" ]
+        if [ ! -z "$IS_X_FILE" ] && [ "$UNAME" == "Darwin" ]
 	then
 	    continue
 	fi
