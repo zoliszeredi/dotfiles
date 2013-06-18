@@ -1,5 +1,4 @@
 [global]
-index-url = http://pypi.pbs.org/simple
 use-mirrors = true
 
 [install]

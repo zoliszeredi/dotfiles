@@ -58,4 +58,5 @@ fi
 
 source_if_exists $HOME/.bash_aliases
 source_if_exists $VIRTUAL_ENV_WRAPPER
+source_if_exists $HOME/.awsrc
 run_if_exists $FORTUNE
