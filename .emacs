@@ -11,7 +11,7 @@
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
- '(tool-bar-mode nil))
+ '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -24,12 +24,7 @@
  ;; If there is more than one, they won't work right.
 
 (add-to-list 'load-path "~/.emacs.d/lisp/")
- ;; (add-to-list 'load-path "~/.emacs.d/lisp/color-theme/")
 (put 'dired-find-alternate-file 'disabled nil)
- ;; (require 'color-theme)
- ;; (color-theme-initialize)
- ;; (color-theme-charcoal-black)
-
  ;; disable the damn splash-screen
 (setq inhibit-splash-screen t)
 
@@ -76,3 +71,8 @@
       (end-of-line)
       (newline-and-indent)
       (insert (format log-entry-format class-name function-name)))))
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(load-theme 'wombat)
