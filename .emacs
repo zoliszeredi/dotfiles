@@ -11,6 +11,7 @@
  '(save-place t nil (saveplace))
  '(scroll-bar-mode nil)
  '(show-paren-mode t)
+ '(tool-bar-mode nil)
  '(tooltip-mode nil))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
