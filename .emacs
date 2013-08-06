@@ -77,3 +77,11 @@
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (load-theme 'wombat)
+
+(defun load-env-tags()
+  (interactive)
+  (let ((tagsfile (concat
+                   (file-name-as-directory (shell-snarf-envar "VIRTUAL_ENV"))
+                   (file-name-as-directory "var")
+                   "TAGS")))
+    (visit-tags-table tagsfile)))
