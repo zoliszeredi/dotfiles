@@ -56,6 +56,11 @@ then
     select_solarized_theme
 fi
 
+if [ "$UNAME" == "Darwin" ]
+then
+    export LC_CTYPE="en_US.UTF-8"
+fi
+
 source_if_exists $HOME/.bash_aliases
 source_if_exists $VIRTUAL_ENV_WRAPPER
 source_if_exists $HOME/.awsrc

@@ -1,0 +1,2 @@
+machine imap.gmail.com login zoli.szeredi@gmail.com password le_password port 993
+machine smtp.gmail.com login zoli.szeredi@gmail.com password le_password port 587
