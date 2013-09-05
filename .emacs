@@ -85,3 +85,39 @@
                    (file-name-as-directory "var")
                    "TAGS")))
     (visit-tags-table tagsfile)))
+
+;; HipChat not yet working...
+ 
+(setq ssl-program-name "gnutls-cli"
+      ssl-program-arguments '("--port" service
+                              "--insecure"
+                              "--starttls"
+                              host))
+      ;; ssl-certificate-verification-policy 1)
+
+;; Connect using jabber.el
+;; M-x jabber-connect <RET>
+
+;; (setq starttls-use-gnutls t
+;;       starttls-gnutls-program "gnutls-cli"
+;;       starttls-extra-arguments '("--starttls" "--insecure"))
+
+;; Config
+(setq jabber-account-list '(("24330_202310@chat.hipchat.com")))
+(defvar hipchat-number "24330")
+(defvar hipchat-nickname "Zoltán Szeredi")
+
+;; Join a room
+(defun hipchat-join (room)
+  (interactive "sRoom name: ")
+  (jabber-groupchat-join
+   (jabber-read-account)
+   (concat hipchat-number "_" room "@conf.hipchat.com")
+   hipchat-nickname
+   t))
+
+;; Mention nicknames in a way that HipChat clients will pickup
+(defun hipchat-mention (nickname)
+  (interactive
+   (list (jabber-muc-read-nickname jabber-group "Nickname: ")))
+  (insert (concat "@\"" nickname "\" ")))
