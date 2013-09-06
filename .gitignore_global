@@ -3,6 +3,9 @@
 .\#*
 *~
 
+# Vim specific
+*.swp
+
 # C/C++ specific
 *.o
 
