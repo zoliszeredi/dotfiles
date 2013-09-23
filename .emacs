@@ -76,7 +76,6 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-(load-theme 'wombat)
 
 (defun load-env-tags()
   (interactive)
@@ -117,3 +116,23 @@
 (defun hipchat-robento()
   (interactive)
   (hipchat-join "tpg_ro_bento"))
+
+(if (display-graphic-p)
+    (load-theme 'adwaita))
+
+(defun shelly ()
+  (interactive)
+  (select-window (split-window-right))
+  (shell))
+
+(defun show-or-hide-dired ()
+  (interactive)
+  (if (and
+       (boundp 'dired-buffers)
+       (member (current-buffer) (mapcar 'cdr dired-buffers)))
+      (delete-window)
+    (split-window-right)
+    (dired-other-window (file-name-directory (buffer-file-name)))))
+
+(global-set-key (kbd "s-x") 'show-or-hide-dired)
+(global-set-key (kbd "s-s") 'shelly)
