@@ -120,10 +120,14 @@
 (if (display-graphic-p)
     (load-theme 'adwaita))
 
-(defun shelly ()
+(defun show-or-hide-shell ()
   (interactive)
-  (select-window (split-window-right))
-  (shell))
+  (if (and
+       (boundp 'buffer-shell)
+       (eq buffer-shell (current-buffer)))
+      (delete-window)
+    (select-window (split-window-below))
+    (setq buffer-shell (shell))))
 
 (defun show-or-hide-dired ()
   (interactive)
@@ -132,7 +136,7 @@
        (member (current-buffer) (mapcar 'cdr dired-buffers)))
       (delete-window)
     (split-window-right)
-    (dired-other-window (file-name-directory (buffer-file-name)))))
+    (dired-other-window default-directory)))
 
-(global-set-key (kbd "s-x") 'show-or-hide-dired)
-(global-set-key (kbd "s-s") 'shelly)
+(global-set-key (kbd "s-d") 'show-or-hide-dired)
+(global-set-key (kbd "s-s") 'show-or-hide-shell)
