@@ -1,8 +1,19 @@
+(when (display-graphic-p)
+  (load-theme 'whiteboard))
+
+(require 'package)
+(package-initialize)
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+(package-refresh-contents)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(ansi-color-names-vector ["#2e3436" "#a40000" "#4e9a06" "#c4a000" "#204a87" "#5c3566" "#729fcf" "#eeeeec"])
  '(column-number-mode t)
  '(gud-gdb-command-name "gdb --annotate=1")
  '(large-file-warning-threshold nil)
@@ -29,8 +40,9 @@
  ;; disable the damn splash-screen
 (setq inhibit-splash-screen t)
 
-(setq scheme-program-name "guile")
- ;; (setq scheme-program-name "kawa")
+ ;; (setq scheme-program-name "guile")
+ ;; (setq scheme-program-name "racket")
+(setq scheme-program-name "kawa")
 (setq fill-column 79)
 (setq-default indent-tabs-mode nil)
 
@@ -73,9 +85,6 @@
       (newline-and-indent)
       (insert (format log-entry-format class-name function-name)))))
 
-(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-                         ("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 
 (defun load-env-tags()
   (interactive)
@@ -116,9 +125,6 @@
 (defun hipchat-robento()
   (interactive)
   (hipchat-join "tpg_ro_bento"))
-
-(if (display-graphic-p)
-    (load-theme 'adwaita))
 
 (defun show-or-hide-shell ()
   (interactive)
