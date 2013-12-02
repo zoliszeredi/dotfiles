@@ -37,7 +37,8 @@
 		      clojure-test-mode
 		      cider
 		      js-comint
-		      js2-mode))
+		      js2-mode
+                      evil))
  '(scheme-program-name "guile")
  '(python-shell-interpreter "ipython")
 )
