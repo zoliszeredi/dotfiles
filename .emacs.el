@@ -24,7 +24,8 @@
  '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 		      ("marmalade" . "http://marmalade-repo.org/packages/")
 		      ("melpa" . "http://melpa.milkbox.net/packages/")))
- '(musthave-packages (python-pep8
+ '(musthave-packages (virtual
+		      python-pep8
 		      python-pylint
 		      flymake-python-pyflakes
 		      auto-complete
