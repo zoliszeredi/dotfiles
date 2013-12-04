@@ -2,7 +2,7 @@
 	name = Zoltan Szeredi
 	email = zoltan.szeredi@3pillarglobal.com
 [core]
-	editor = emacs
+	editor = emacsclient -c -a=""
 	excludesfile = ~/.gitignore_global
 	pager = 
 [color]
