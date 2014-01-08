@@ -34,6 +34,7 @@
 		      geiser
 		      eldoc
 		      paredit
+		      pretty-lambdada
 		      clojure-mode
 		      clojure-test-mode
 		      cider
