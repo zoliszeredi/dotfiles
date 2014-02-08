@@ -1,7 +1,0 @@
-[global]
-use-mirrors = true
-
-[install]
-find-links = 
-    http://f.pypi.python.org
-    http://pypi.crate.io

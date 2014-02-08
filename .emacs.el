@@ -20,29 +20,26 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
- '(initial-buffer-choice "~/Source/")
  '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 		      ("marmalade" . "http://marmalade-repo.org/packages/")
 		      ("melpa" . "http://melpa.milkbox.net/packages/")))
- '(musthave-packages (virtual
-		      python-pep8
-		      python-pylint
-		      flymake-python-pyflakes
-		      auto-complete
-		      projectile
-		      magit
-		      geiser
-		      eldoc
-		      paredit
-		      pretty-lambdada
-		      clojure-mode
-		      clojure-test-mode
-		      cider
-		      js-comint
-		      js2-mode
-                      evil))
+ '(my-packages (dash
+		python-pep8
+		python-pylint
+		flymake-python-pyflakes
+		auto-complete
+		projectile
+		magit
+		geiser
+		eldoc
+		paredit
+		pretty-lambdada
+		clojure-mode
+		clojure-test-mode
+		cider
+		evil))
  '(scheme-program-name "guile")
- '(python-shell-interpreter "ipython")
+ '(python-shell-interpreter "python")
 )
 
 (custom-set-faces
@@ -57,17 +54,25 @@
 (package-refresh-contents)
 
 (defun lazy-install-packages ()
-  (let ((packages (car (get 'musthave-packages 'saved-value))))
+  (interactive)
+  (let ((packages (car (get 'my-packages 'saved-value))))
     (dolist (package packages)
       (unless (package-installed-p package)
 	(package-install package)))))
-
-(lazy-install-packages)
     
 (put 'dired-find-alternate-file 'disabled nil)
 
 (defun google-region (beg end)
   "Google the selected region"
   (interactive "r")
-  (browse-url (concat "http://www.google.com/search?ie=utf-8&oe=utf-8&q=" 
-                      (buffer-substring beg end))))
+  (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
+	(string (buffer-substring beg end)))
+      (browse-url (format url-format string))))
+
+(defun google-string (string)
+  "Google for something"
+  (interactive "sWords: ")
+  (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"))
+      (browse-url (format url-format string))))
+
+(global-set-key (kbd "C-?") 'delete-backward-char)
