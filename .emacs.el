@@ -51,10 +51,10 @@
 
 (require 'package)
 (package-initialize)
-(package-refresh-contents)
 
 (defun lazy-install-packages ()
   (interactive)
+  (package-refresh-contents)  
   (let ((packages (car (get 'my-packages 'saved-value))))
     (dolist (package packages)
       (unless (package-installed-p package)

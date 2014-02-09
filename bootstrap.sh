@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 DOTENTRIES=$(ls -a | egrep '^\.')
 XFILES=$(ls -a | egrep '\.(x|X)')
 UNAME=$(uname -s)
@@ -9,11 +10,18 @@ do
     if [ -f $DOTENTRY ]
     then
 	IS_X_FILE=$(echo $XFILES | grep $DOTENTRY)
-        if [ ! -z "$IS_X_FILE" ] && [ "$UNAME" == "Darwin" ]
+	if [ ! -z "$IS_X_FILE" ] && [ "$UNAME" == "Darwin" ]
 	then
 	    continue
 	fi
-        
-        CMD="cp -Rf $DOTENTRY $HOME/$DOTENTRY" && echo $CMD && $CMD
+
+	CMD="cp -Rf $DOTENTRY $HOME/$DOTENTRY" && echo $CMD && $CMD
     fi
 done
+
+if [ ! -d $HOME/bin ];
+then
+    mkdir $HOME/bin
+fi
+
+cp bin/kawa $HOME/bin

@@ -1,23 +1,22 @@
 #!/bin/bash
 
-alias emacs='emacs -nw'
-alias today='touch `date +%F.org`'
+emc () {
+    emacsclient -a "" $*;
+}
 
-mkenv() 
-{
+mkenv() {
     if [ $# -ne 1 ]
     then
 	echo "mkenv <path_to_new_environment>"
 	echo "Creates a virtual environment in the specified path"
 	return 0
     fi
-       
+
     virtualenv $1
-    source $1/bin/activate
+    . $1/bin/activate
 }
 
-rmenv()
-{
+rmenv() {
     if [ -z $VIRTUAL_ENV ]
     then
 	echo "Not in a virtual environment."
@@ -28,8 +27,7 @@ rmenv()
     deactivate
 }
 
-djenv() 
-{ 
+djenv() {
     if [ $# -ne 1 ]
     then
 	echo "djenv <project>"
@@ -48,8 +46,7 @@ djenv()
     export PYTHONPATH DJANGO_SETTINGS_MODULE DJANGO_ROOT DJANGO_SETTINGS
 }
 
-djprep()
-{
+djprep() {
     if [ -z $VIRTUAL_ENV ] || [ -z $DJANGO_SETTINGS_MODULE ]
     then
 	echo "Not in a virtual environment or django settings set."
@@ -61,8 +58,7 @@ djprep()
     django-admin.py collectstatic
 }
 
-djrun()
-{
+djrun() {
     if [ -z $VIRTUAL_ENV ]
     then
 	echo "Not in a virtual/django environment."
@@ -72,8 +68,7 @@ djrun()
     django-admin.py runserver 0:8000
 }
 
-djsh()
-{
+djsh() {
     if [ -z $DJANGO_SETTINGS ]
     then
 	echo "Run djenv first"
@@ -82,28 +77,3 @@ djsh()
 
     django-admin.py shell
 }
-
-djdebug()
-{
-    if [ -z $DJANGO_SETTINGS ]
-    then
-	echo "Run djenv first"
-	return 1
-    fi
-
-    sed 's/DEBUG \= False/DEBUG \= True/g' < $DJANGO_SETTINGS > $$
-    mv $$ $DJANGO_SETTINGS
-}
-
-djnodebug()
-{
-    if [ -z $DJANGO_SETTINGS ]
-    then
-	echo "Run djenv first"
-	return 1
-    fi
-
-    sed 's/DEBUG \= True/DEBUG \= False/g' < $DJANGO_SETTINGS > $$
-    mv $$ $DJANGO_SETTINGS
-}
-
