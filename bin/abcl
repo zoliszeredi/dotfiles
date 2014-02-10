@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+
+import os
+import urllib2
+
+
+def do_make_home_dir(dir_name):
+    dir_path = os.path.join(os.environ.get('HOME'), dir_name)
+    if not os.path.exists(dir_path):
+        os.mkdir(dir_path)
+    return dir_path
+
+
+def get_or_fetch(uri, cache_dir):
+    cache_dir = do_make_home_dir(cache_dir)
+    local_file = os.path.join(
+        os.path.join(cache_dir),
+        os.path.basename(uri)
+    )
+
+    if os.path.exists(local_file):
+        return local_file
+
+    try:
+        reader = urllib2.urlopen(uri)
+        file_data = reader.read()
+        with open(local_file, 'w') as writer:
+            writer.write(file_data)
+    except urllib2.URLError, e:
+        raise IOError('Bad url.', e)
+
+    return local_file
+
+
+def find_executable(program, paths=os.environ.get('PATH').split(os.pathsep)):
+    executables = ((path, os.listdir(path)) for path in paths)
+    matches = (os.path.join(path, program)
+               for path, bins in executables
+               if program in bins)
+    first = matches.next()
+    return first
+
+
+def main():
+    url = 'http://abcl-dynamic-install.googlecode.com/files/abcl-1.2.1.jar'
+    jar_path = get_or_fetch(uri=url, cache_dir='.abcl')
+    java_bin = find_executable('java')
+    os.execv(java_bin, ('java', '-jar', jar_path))
+
+
+if __name__ == '__main__':
+    main()

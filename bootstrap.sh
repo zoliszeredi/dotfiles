@@ -25,3 +25,4 @@ then
 fi
 
 cp bin/kawa $HOME/bin
+cp bin/abcl $HOME/bin
