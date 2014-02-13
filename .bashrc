@@ -2,11 +2,11 @@
 
 source $HOME/.bash_profile
 
-TERM="xterm-256color"
+# TERM="xterm-256color"
 VIRTUAL_ENV_WRAPPER=$(which "virtualenvwrapper.sh" 2> /dev/null)
 FORTUNE=$(which fortune 2> /dev/null)
 
-export TERM
+# export TERM
 
 source_if_exists()
 {

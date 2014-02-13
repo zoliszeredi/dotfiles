@@ -75,4 +75,21 @@
   (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"))
       (browse-url (format url-format string))))
 
+
+(defun django-grep ()
+  "Find-grep for a django something"
+  (interactive)
+  (let ((thing (symbol-at-point))
+	(django-dir "~/Source/web/django/django"))
+    (find-grep
+     (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
+
+(defun django-grep-string (thing)
+  "Find-grep for a django something"
+  (interactive "sString: ")
+  (let ((django-dir "~/Source/web/django/django"))
+    (find-grep
+     (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
+
+
 (global-set-key (kbd "C-?") 'delete-backward-char)
