@@ -91,5 +91,11 @@
     (find-grep
      (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
 
+(defun venv-set (env-name)
+  "Prepends exec-path to point $WORKON_HOME/env-name/bin"
+  (interactive "sEnvironment: ")
+  (let ((venv-bin-path (concat (getenv "WORKON_HOME") "/" env-name "/" "bin")))
+    (setq exec-path (cons venv-bin-path exec-path))))
+
 
 (global-set-key (kbd "C-?") 'delete-backward-char)
