@@ -40,6 +40,8 @@
 		evil))
  '(scheme-program-name "guile")
  '(python-shell-interpreter "python")
+ '(uniquify-buffer-name-style 'post-forward)
+ '(uniquify-separator ":")
 )
 
 (custom-set-faces
@@ -51,6 +53,9 @@
 
 (require 'package)
 (package-initialize)
+
+(require 'uniquify)
+(require 'ido)
 
 (defun lazy-install-packages ()
   (interactive)
@@ -84,12 +89,14 @@
     (find-grep
      (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
 
+
 (defun django-grep-string (thing)
   "Find-grep for a django something"
   (interactive "sString: ")
   (let ((django-dir "~/Source/web/django/django"))
     (find-grep
      (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
+
 
 (defun venv-set (env-name)
   "Prepends exec-path to point $WORKON_HOME/env-name/bin"
@@ -98,4 +105,15 @@
     (setq exec-path (cons venv-bin-path exec-path))))
 
 
+(defun git-clone-repo (repo destination)
+  "Clones a git repo to a destination"
+  (interactive "sRepo: \nsDestination: ")
+  (let ((git-args "git clone %s %s")
+	(git-command (format git-args repo destination)))
+    (async-shell-command command)))
+
+
+(ido-mode t)
+
 (global-set-key (kbd "C-?") 'delete-backward-char)
+
