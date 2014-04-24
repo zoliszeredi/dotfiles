@@ -42,6 +42,8 @@
  '(python-shell-interpreter "python")
  '(uniquify-buffer-name-style 'post-forward)
  '(uniquify-separator ":")
+ '(display-time-day-and-date t)
+ '(display-time-24hr-format t)
 )
 
 (custom-set-faces
@@ -116,4 +118,4 @@
 (ido-mode t)
 
 (global-set-key (kbd "C-?") 'delete-backward-char)
-
+(display-time)
