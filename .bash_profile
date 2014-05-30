@@ -9,4 +9,8 @@ PIP_CONFIG_FILE=$HOME/.piprc
 UNAME=$(uname -s)
 
 export PS1 PS2 PATH EDITOR UNAME
-export WORKON_HOME PIP_CONFIG_FILE 
+export WORKON_HOME PIP_CONFIG_FILE
+
+emc () {
+    emacsclient -a "" $*;
+}
