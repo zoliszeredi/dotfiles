@@ -20,6 +20,7 @@
  '(show-paren-mode t)
  '(tool-bar-mode nil)
  '(tooltip-mode nil)
+ '(show-trailing-whitespace t)
  '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
 		      ("marmalade" . "http://marmalade-repo.org/packages/")
 		      ("melpa" . "http://melpa.milkbox.net/packages/")))
