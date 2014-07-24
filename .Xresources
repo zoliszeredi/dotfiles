@@ -7,3 +7,5 @@ xterm*metaSendsEscape: true
 xterm*backarrowKey:    false
 xterm*faceName:        Bitstream Vera Sans Mono
 xterm*faceSize:        10
+xterm*background:      AntiqueWhite
+xterm*foreground:      Black
