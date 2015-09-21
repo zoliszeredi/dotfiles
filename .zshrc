@@ -1,9 +1,9 @@
-#!/bin/bash
+autoload -U compinit promptinit
+compinit
+promptinit
 
-source $HOME/.bash_profile
-
-# TERM="xterm-256color"
-VIRTUAL_ENV_WRAPPER=$(which "virtualenvwrapper.sh" 2> /dev/null)
+# This will set the default prompt to the walters theme
+prompt walters
 
 if [[ $(uname) == "Linux" ]]
 then
