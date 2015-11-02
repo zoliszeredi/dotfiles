@@ -37,24 +37,9 @@ else
 	colo desert
 endif
 
-function DjangoTags()
-	set tags+=/usr/share/django.tags
-endfunction
-
-function PythonTags()
-    set tags+=/usr/share/python.tags
-endfunction
-
-function SetCommands()
-	command DjangoMode call DjangoTags()
-	command PythonMode call PythonTags()
-endfunction
-
 syntax on
 filetype indent plugin on
 autocmd FileType python set ts=4 sw=4 bs=2 et
 autocmd FileType cpp set ts=2 sw=2 bs=2 et
 autocmd FileType html set ts=4 sw=4 bs=2 et
 inoremap jk <esc>
-
-call SetCommands()

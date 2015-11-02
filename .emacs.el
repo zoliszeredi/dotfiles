@@ -22,23 +22,8 @@
  '(tooltip-mode nil)
  '(show-trailing-whitespace t)
  '(package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
-		      ("marmalade" . "http://marmalade-repo.org/packages/")
-		      ("melpa" . "http://melpa.milkbox.net/packages/")))
- '(my-packages (dash
-		python-pep8
-		python-pylint
-		flymake-python-pyflakes
-		auto-complete
-		projectile
-		magit
-		geiser
-		eldoc
-		paredit
-		pretty-lambdada
-		clojure-mode
-		clojure-test-mode
-		cider
-		evil))
+;;		      ("marmalade" . "http://marmalade-repo.org/packages/")
+		      ("melpa-stable" . "http://stable.melpa.org/packages/")))
  '(scheme-program-name "guile")
  '(python-shell-interpreter "python")
  '(uniquify-buffer-name-style 'post-forward)
@@ -60,13 +45,6 @@
 (require 'uniquify)
 (require 'ido)
 
-(defun lazy-install-packages ()
-  (interactive)
-  (package-refresh-contents)  
-  (let ((packages (car (get 'my-packages 'saved-value))))
-    (dolist (package packages)
-      (unless (package-installed-p package)
-	(package-install package)))))
     
 (put 'dired-find-alternate-file 'disabled nil)
 
@@ -82,39 +60,6 @@
   (interactive "sWords: ")
   (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"))
       (browse-url (format url-format string))))
-
-
-(defun django-grep ()
-  "Find-grep for a django something"
-  (interactive)
-  (let ((thing (symbol-at-point))
-	(django-dir "~/Source/web/django/django"))
-    (find-grep
-     (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
-
-
-(defun django-grep-string (thing)
-  "Find-grep for a django something"
-  (interactive "sString: ")
-  (let ((django-dir "~/Source/web/django/django"))
-    (find-grep
-     (format "find %s -name '*.py' -exec grep -nH %s '{}' +" django-dir thing))))
-
-
-(defun venv-set (env-name)
-  "Prepends exec-path to point $WORKON_HOME/env-name/bin"
-  (interactive "sEnvironment: ")
-  (let ((venv-bin-path (concat (getenv "WORKON_HOME") "/" env-name "/" "bin")))
-    (setq exec-path (cons venv-bin-path exec-path))))
-
-
-(defun git-clone-repo (repo destination)
-  "Clones a git repo to a destination"
-  (interactive "sRepo: \nsDestination: ")
-  (let ((git-args "git clone %s %s")
-	(git-command (format git-args repo destination)))
-    (async-shell-command command)))
-
 
 (ido-mode t)
 
