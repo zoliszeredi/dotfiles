@@ -28,7 +28,7 @@ copy_verbose () {
     destination=$1
     shift
     sources=$*
-    [[ ! -d $destination ]] && mkdir -p "$destination"
+    [[ -d $destination ]] || mkdir -p "$destination"
     for entry in $sources; do
     	copy_command="cp -Rf $entry $destination"
         echo "$copy_command"

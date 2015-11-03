@@ -3,14 +3,22 @@
 PS1="\u@[\h]$ "
 PS2="> "
 PATH=$PATH:$HOME/bin
-WORKON_HOME=$HOME/.envs
 EDITOR=$HOME/bin/edit
 PIP_CONFIG_FILE=$HOME/.piprc
-UNAME=$(uname -s)
 
-export PS1 PS2 PATH EDITOR UNAME
-export WORKON_HOME PIP_CONFIG_FILE
+export PS1 PS2 PATH EDITOR
+export PIP_CONFIG_FILE
+
+source_nix () {
+    local nix_profile
+
+    nix_profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
+    [[ -e $nix_profile ]] && . "$nix_profile"
+}
 
 emc () {
     emacsclient -a "" $*;
 }
+
+
+source_nix
