@@ -1,6 +1,6 @@
 [user]
-	name = Zoltan Szeredi
-	email = zoltan.szeredi@3pillarglobal.com
+	name = Zoltán Tibor Szeredi
+	email = zoli.szeredi@gmail.com
 [core]
 	editor = emacsclient -c -a=""
 	excludesfile = ~/.gitignore_global
