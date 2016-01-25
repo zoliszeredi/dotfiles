@@ -45,23 +45,13 @@
 (require 'uniquify)
 (require 'ido)
 
-    
+(package-install 'flycheck)
+(package-install 'magit)
+(package-install 'cider)
+
 (put 'dired-find-alternate-file 'disabled nil)
-
-(defun google-region (beg end)
-  "Google the selected region"
-  (interactive "r")
-  (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s")
-	(string (buffer-substring beg end)))
-      (browse-url (format url-format string))))
-
-(defun google-string (string)
-  "Google for something"
-  (interactive "sWords: ")
-  (let ((url-format "http://www.google.com/search?ie=utf-8&oe=utf-8&q=%s"))
-      (browse-url (format url-format string))))
-
 (ido-mode t)
+(global-flycheck-mode)
 
 (global-set-key (kbd "C-?") 'delete-backward-char)
 (display-time)
