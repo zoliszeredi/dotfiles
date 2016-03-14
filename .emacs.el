@@ -10,6 +10,7 @@
  '(inferior-js-program-command "nodejs --interactive")
  '(inhibit-startup-screen t)
  '(large-file-warning-threshold nil)
+ ;; '(flycheck-python-pylint-executable "/home/stz/.envs/pylint/bin/pylint")
  '(menu-bar-mode nil nil (menu-bar))
  '(safe-local-variable-values
    (quote ((eval when (string-match "\\.h\\'" (buffer-file-name))
@@ -53,5 +54,11 @@
 (ido-mode t)
 (global-flycheck-mode)
 
+(defun my-dired-mode-setup ()
+  "Hide the silly extra columns in dired view"
+  (dired-hide-details-mode 1))
+
+(add-hook 'dired-mode-hook 'my-dired-mode-setup)
 (global-set-key (kbd "C-?") 'delete-backward-char)
+
 (display-time)
