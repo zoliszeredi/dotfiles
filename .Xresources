@@ -1,11 +1,12 @@
-xterm*termName:        xterm-256color
-xterm*loginShell:      true
-xterm*geometry:        80x50
-xterm*scrollBar:       off
-xterm*internalBorder:  25
-xterm*metaSendsEscape: true
-xterm*backarrowKey:    false
-xterm*faceName:        Bitstream Vera Sans Mono
-xterm*faceSize:        10
-xterm*background:      AntiqueWhite
-xterm*foreground:      Black
+xterm*internalBorder:   25
+xterm*faceName:         Fira Mono
+xterm*faceSize:         12
+xterm*geometry:         80x50
+xterm*foreground:       Black
+xterm*background:       LightYellow
+xterm*metaSendsEscape:  true
+xterm*loginShell:       true
+xterm*selectToClipboard:true
+
+#include ".Xresources.solarizedlight"
+
