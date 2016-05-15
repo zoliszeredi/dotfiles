@@ -1,11 +1,13 @@
+[gpg]
+	program = gpg2
 [user]
 	name = Tibor Zoltán Szeredi
 	email = zoli.szeredi@gmail.com
-	signingkey = D2972770
+	signingkey = 3A866E9C
 [core]
 	editor = emacs -nw
 	excludesfile = ~/.gitignore_global
-	pager = 
+	pager =
 
 [commit]
 	gpgsign = true
