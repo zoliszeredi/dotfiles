@@ -10,5 +10,5 @@ xterm*selectToClipboard:true
 xclock*foreground:      Black
 xclock*background:      LightYellow
 
-#include "./Xresources.solarizedlight"
+#include "./baskerville-ivorylight"
 
