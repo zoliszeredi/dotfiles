@@ -51,6 +51,10 @@
 (package-install 'flycheck)
 (package-install 'magit)
 (package-install 'cider)
+(package-install 'slime)
+(package-install 'geiser)
+(package-install 'jsx-mode)
+(package-install 'lua-mode)
 
 (put 'dired-find-alternate-file 'disabled nil)
 (ido-mode t)
@@ -62,5 +66,13 @@
 
 (add-hook 'dired-mode-hook 'my-dired-mode-setup)
 (global-set-key (kbd "C-?") 'delete-backward-char)
+
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . jsx-mode))
+(autoload 'jsx-mode "jsx-mode" "JSX mode" t)
+
+
+(autoload 'lua-mode "lua-mode" "Lua editing mode." t)
+(add-to-list 'auto-mode-alist '("\\.lua$" . lua-mode))
+(add-to-list 'interpreter-mode-alist '("lua" . lua-mode))
 
 (display-time)
