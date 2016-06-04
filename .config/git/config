@@ -6,7 +6,7 @@
 	signingkey = 3A866E9C
 [core]
 	editor = emacs -nw
-	excludesfile = ~/.gitignore_global
+	excludesfile = ~/.config/git/ignore_global
 	pager =
 
 [commit]

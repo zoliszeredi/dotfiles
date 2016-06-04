@@ -41,13 +41,16 @@ main () {
 
     repo_url="https://github.com/zoliszeredi/dotfiles"
     repo="$HOME/source/dotfiles"
-    install_nix
+    # install_nix
 
     clone_repo "$repo_url" "$repo"
-    dotfiles=$(find "$repo" -type f -name '\.*' -maxdepth 1)
-    binfiles=$(find "$repo/bin" -type f -maxdepth 1)
-    copy_verbose "$HOME/" "$dotfiles"
+    dotfiles=$(find "$repo" -maxdepth 1 -type f -name '\.*')
+    binfiles=$(find "$repo/bin" -maxdepth 1 -type f)
+    copy_verbose "$HOME/" "$dotfiles .config .emacs.d"
     copy_verbose "$HOME/bin/" "$binfiles"
+    ln -vfs "$HOME/.config/bash/profile" "$HOME/.bash_profile"
+    ln -vfs "$HOME/.config/bash/rc" "$HOME/.bashrc"
+    ln -vfs "$HOME/.config/zsh/rc" "$HOME/.zshrc"
 }
 
 main

@@ -7,6 +7,8 @@ xterm*background:       LightYellow
 xterm*metaSendsEscape:  true
 xterm*loginShell:       true
 xterm*selectToClipboard:true
+xclock*foreground:      Black
+xclock*background:      LightYellow
 
-#include ".Xresources.solarizedlight"
+#include "./Xresources.solarizedlight"
 
