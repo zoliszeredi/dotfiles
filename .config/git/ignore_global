@@ -16,7 +16,12 @@
 *.pyc
 *.egg
 *.egg-info
+.tox
+.coverage
+.doctrees
+_build
 dist
+htmlcov
 
 # Tags
 tags

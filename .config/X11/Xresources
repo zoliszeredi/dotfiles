@@ -1,14 +1,93 @@
 xterm*internalBorder:   25
 xterm*faceName:         Fira Mono
 xterm*faceSize:         12
-xterm*geometry:         80x50
-xterm*foreground:       Black
-xterm*background:       LightYellow
+! xterm*geometry:         80x50
+! xterm*foreground:       Black
+! xterm*background:       LightYellow
 xterm*metaSendsEscape:  true
 xterm*loginShell:       true
 xterm*selectToClipboard:true
 xclock*foreground:      Black
 xclock*background:      LightYellow
 
-#include "./baskerville-ivorylight"
+! Xft.dpi: 180
+Xft.antialias: 1
 
+! !baskerville-ivorylight
+! 
+! *background:  #FEF9EC
+! *foreground:  #6D727E
+! 
+! *colorBD:     #3E424D
+! *colorIT:     #3E424D
+! *colorUL:     #3E424D
+! 
+! *cursorColor: #007693
+! 
+! ! BLACK
+! *color0:      #C5C1B4
+! *color8:      #A1A6B2
+! 
+! ! WHITE
+! *color7:      #3E424D
+! *color15:     #282C36
+! 
+! ! RED
+! *color1:      #E75C58
+! *color9:      #B22B31
+! 
+! ! YELLOW
+! *color3:      #A08A00
+! *color11:     #715F00
+! 
+! ! GREEN
+! *color2:      #00A250
+! *color10:     #007427
+! 
+! ! CYAN
+! *color6:      #00A4C1
+! *color14:     #007693
+! 
+! ! BLUE
+! *color4:      #208FFB
+! *color12:     #0065CA
+! 
+! ! MAGENTA
+! *color5:      #D160C4
+! *color13:    #A03196
+
+!Baskerville - Eldorado dark
+*background:  #292929
+*foreground:  #A2A2A2
+
+! BLACK
+*color0:      #4E4E4E
+*color8:      #777777
+
+! WHITE
+*color7:      #CFCFCF
+*color15:     #FFFFFF
+
+! RED
+*color1:      #A9635D
+*color9:      #FFBBB2
+
+! YELLOW
+*color3:      #84763D
+*color11:     #E0CE91
+
+! GREEN
+*color2:      #468459
+*color10:     #9DDEAF
+
+! CYAN
+*color6:      #008592
+*color14:     #79E0ED
+
+! BLUE
+*color4:      #5879AF
+*color12:     #B3D1FF
+
+! MAGENTA
+*color5:      #9C6594
+*color13:     #FABDF0

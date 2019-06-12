@@ -1,20 +1,18 @@
 autoload -U compinit promptinit
 compinit
 promptinit
+unsetopt automenu
 
 # This will set the default prompt to the walters theme
-prompt walters
-
-source_nix () {
-    local nix_profile
-
-    nix_profile="$HOME/.nix-profile/etc/profile.d/nix.sh"
-    [[ -e $nix_profile ]] && . "$nix_profile"
-}
-
-function wp() {
-    awsetbg -r $HOME/Pictures
-}
+# prompt fade red
 
 
-source_nix
+export CLICOLOR=1
+export LS_OPTIONS="--color=auto"
+export LS_COLORS='no=00;37:fi=00:di=00;33:ln=04;36:pi=40;33:so=01;35:bd=40;33;01:'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+alias ls="ls $LS_OPTIONS"
+alias pip=pip3
+alias pep8=$HOME/.envs/pycodestyle/bin/pycodestyle
+alias black=$HOME/.envs/black/bin/black
